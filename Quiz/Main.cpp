@@ -14,7 +14,7 @@ int main() {
 	std::cin >> mobileNumber;
 
 	std::fstream file;
-	file.open("card.txt", std::ios::out);
+	file.open("card.txt", std::ios::out | std::ios::app);
 
 	file << name << std::endl;
 	file << surName << std::endl;
