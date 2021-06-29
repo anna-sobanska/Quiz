@@ -5,48 +5,75 @@
 
 
 int main() {
-	std::string name, surName;
-	int mobileNumber{};
 
-	/*std::cout << "Enter your name: ";
-	std::cin >> name;
-	std::cout << "Enter your surname: ";
-	std::cin >> surName;
-	std::cout << "Enter your mobile phone: ";
-	std::cin >> mobileNumber;*/
+	std::string subject, name;
+	std::string question[5], answerA[5], answerB[5], answerC[5], answerD[5], correct[5], userAnswer, line;
+	int score = 0;
+	int lineNumber = 1;
+	int questionNumber = 0;
+	
 
 	std::fstream file;
-	file.open("card.txt", std::ios::in);
+	file.open("Quiz.txt", std::ios::in);
 
 	if (file.good() == false) {
 		std::cout << "File doesn't exist!";
 		exit(0);
 	}
 
-	std::string line;
-	int lineNumber=1;
-	
 	while (getline(file, line))
 	{
 		switch (lineNumber) {
 		case 1:
-			name = line;
+			subject = line;
 			break;
 		case 2:
-			surName = line;
+			name = line;
 			break;
 		case 3:
-			mobileNumber = atoi(line.c_str());
+			question[questionNumber] = line;
+			break;
+		case 4:
+			answerA[questionNumber] = line;
+			break;
+		case 5:
+			answerB[questionNumber] = line;
+			break;
+		case 6:
+			answerC[questionNumber] = line;
+			break;
+		case 7:
+			answerD[questionNumber] = line;
+			break;
+		case 8:
+			correct[questionNumber] = line;
 			break;
 		}
+		if (lineNumber == 8) { lineNumber = 2; questionNumber++; }
 		lineNumber++;
 	}
 
 	file.close();
 
-	std::cout << name << std::endl;
-	std::cout << surName << std::endl;
-	std::cout << mobileNumber << std::endl;
+	for (int i = 0; i <= 4; i++) {
+		std::cout << std::endl << question[i] << std::endl;
+		std::cout << "A. "<< answerA[i] << std::endl;
+		std::cout << "B. " << answerB[i] << std::endl;
+		std::cout << "C. " << answerC[i] << std::endl;
+		std::cout << "D. " << answerD[i] << std::endl;
 
+		std::cout << "Your answer is: ";
+		std::cin >> userAnswer;
+
+		if (userAnswer == correct[i]) {
+			std::cout << "Good! You get a point!" << std::endl;
+			score++;
+		}
+		else {
+			std::cout << "Wrong! You don't get a point! Correct answer is " << correct[i] << std::endl;
+		}
+
+	}
+	std::cout << "This is the end of quiz, you have got " << score << " points";
 	system("pause>0");
 }

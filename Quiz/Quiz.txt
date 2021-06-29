@@ -1,0 +1,32 @@
+Programming in C++
+Anna Sobańska
+What is a correct syntax to output "Hello World" in C++?
+cout << "Hello World!";
+System.out.println("Hello World");
+print("Hello World");
+Console.WriteLine("Hello World);
+a
+How do you insert comments in C++ code?
+// this is a comment
+/* this is a comment
+# this is a comment
+<!-- and --> this is a comment
+b
+Which data type is used to create a variable that should store text?
+myString
+String
+string
+txt
+c
+How do you create a variable with the numeric value 5?
+int x =5;
+num x = 5;
+x = 5;
+double x = 5;
+a
+How do you create a variable with the floating point number 2.8?
+x = 2.8;
+int x = 2.8;
+double x = 2.8;
+byte x = 2.8;
+c
