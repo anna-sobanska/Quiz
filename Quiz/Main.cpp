@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
+#include <algorithm>
+
 
 
 int main() {
@@ -64,6 +66,8 @@ int main() {
 
 		std::cout << "Your answer is: ";
 		std::cin >> userAnswer;
+
+		transform(userAnswer.begin(), userAnswer.end(), userAnswer.begin(), ::tolower);
 
 		if (userAnswer == correct[i]) {
 			std::cout << "Good! You get a point!" << std::endl;
