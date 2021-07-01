@@ -4,15 +4,11 @@
 #include <cstdlib>
 #include <algorithm>
 
-
-
 int main() {
 
-	std::string subject, name;
-	std::string question[5], answerA[5], answerB[5], answerC[5], answerD[5], correct[5], userAnswer, line;
-	int score = 0;
-	int lineNumber = 1;
-	int questionNumber = 0;
+	std::string subject, name, userAnswer, line;
+	std::string question[5], answerA[5], answerB[5], answerC[5], answerD[5], correct[5];
+	int score = 0, lineNumber = 1, questionNumber = 0;
 	
 
 	std::fstream file;
